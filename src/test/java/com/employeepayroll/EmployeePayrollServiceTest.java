@@ -24,6 +24,13 @@ public class EmployeePayrollServiceTest {
         int result = dbService.updateEmployeeSalaryWithStoredProcedure("Terisa", 5000000.00);
         assertEquals(1, result);
     }
+    @Test
+    public void givenEmployeeName_WhenRetrieved_ShouldReturnCorrectData() {
+        EmployeePayrollDBService dbService = new EmployeePayrollDBService();
+        List<EmployeePayrollData> employeePayrollList = dbService.getEmployeePayrollData("Terisa");
+        assertEquals(1, employeePayrollList.size());
+    }
+
 
 
 }

@@ -18,5 +18,12 @@ public class EmployeePayrollServiceTest {
         int result = dbService.updateEmployeeSalary("Terisa", 3000000.00);
         assertEquals(1, result);
     }
+    @Test
+    public void givenNewSalaryForEmployee_WhenUpdatedUsingStoredProcedure_ShouldMatch() {
+        EmployeePayrollDBService dbService = new EmployeePayrollDBService();
+        int result = dbService.updateEmployeeSalaryWithStoredProcedure("Terisa", 5000000.00);
+        assertEquals(1, result);
+    }
+
 
 }

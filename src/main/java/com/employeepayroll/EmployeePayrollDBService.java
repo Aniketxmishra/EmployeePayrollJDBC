@@ -51,5 +51,21 @@ public class EmployeePayrollDBService {
         }
         return 0;
     }
+    public int updateEmployeeSalaryWithStoredProcedure(String name, double salary) {
+        String sql = "{call update_salary(?,?)}";
+
+        try (Connection connection = getConnection();
+             CallableStatement callableStatement = connection.prepareCall(sql)) {
+
+            callableStatement.setString(1, name);
+            callableStatement.setDouble(2, salary);
+            return callableStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
 }

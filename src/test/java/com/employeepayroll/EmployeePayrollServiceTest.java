@@ -12,4 +12,11 @@ public class EmployeePayrollServiceTest {
         List<EmployeePayrollData> employeePayrollList = dbService.getEmployeePayrollData();
         assertEquals(3, employeePayrollList.size());
     }
+    @Test
+    public void givenNewSalaryForEmployee_WhenUpdated_ShouldMatch() {
+        EmployeePayrollDBService dbService = new EmployeePayrollDBService();
+        int result = dbService.updateEmployeeSalary("Terisa", 3000000.00);
+        assertEquals(1, result);
+    }
+
 }
